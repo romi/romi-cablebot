@@ -20,11 +20,18 @@ int debug = 1;
 #define debug_print_name_value(__s, __v) if (debug) { Serial.print(__s); Serial.print(" "); Serial.println(__v); }
 
 
+// Suported motors
+#define DFROBOT_MOTOR 0
+#define ODRIVE_5055 1
+
+#define USED_MOTOR ODRIVE_5055
+
 /////////////////////////////////////////////////////////////////////////
 // ## Brushless DC motor https://wiki.dfrobot.com/FIT0441_Brushless_DC_Motor_with_Encoder_12V_159RPM
+#if USED_MOTOR == DFROBOT_MOTOR
 
 #define PIN_MOTOR_1_PWM 9
-#define PIN_MOTOR_3_DIR 7
+#define PIN_MOTOR_3_DIR 6
 #define PIN_MOTOR_4_FG 8
 
 // Encoders
@@ -40,6 +47,17 @@ const float maxSpeed = 2.4f;
 float absoluteSpeed;
 float smoothAbsoluteSpeed;
 
+#endif
+
+/////////////////////////////////////////////////////////////////////////
+// ## Brushless motor Turnigy Aerodrive SK3 - 5055-280kv (https://hobbyking.com/es_es/turnigy-aerodrive-sk3-5055-280kv-brushless-outrunner-motor.html)
+// ## with Odrive controler (https://github.com/odriverobotics/ODrive)
+// ## and AMT102 encoder 8192 ticks (https://www.cuidevices.com/product/resource/digikeypdf/amt10.pdf)
+
+#if USED_MOTOR == ODRIVE_5055
+
+
+#endif
 
 const unsigned int SPEED_ALPHA = 5; // 0-10 - small values -> more smooth and big values more close to original data.
 
@@ -61,13 +79,14 @@ PID pid(&pidInput, &pidOutput, &pidTarget, 0.1, 4, 0.01, DIRECT);
 /////////////////////////////////////////////////////////////////////////
 // ## Remote control
 
-#define PIN_RC_SPEED 6
+/* #define PIN_RC_SPEED 6 */
+#define PIN_RC_SPEED 3
 const unsigned int RC_ALPHA = 2; // 0-10 - small values -> more smooth and big values more close to original data.
 //const unsigned int RC_CALIBRATION[3] = {8828, 12164, 15200}; // Min, Middle and Max values to calibrate the remote
 const unsigned int RC_CALIBRATION[3] = {1104, 1520, 1900}; // Min, Middle and Max values to calibrate the remote
-const unsigned int RC_THRESHOLD = (RC_CALIBRATION[1] - RC_CALIBRATION[0]) / 3;
+const unsigned int RC_THRESHOLD = (RC_CALIBRATION[1] - RC_CALIBRATION[0]) / 2;
 volatile unsigned long rcTimerSpeed;
-volatile long rcSpeed;
+volatile long rcSpeed = 0;
 long rcSmoothSpeed;
 bool rcUpdated;
 
@@ -83,9 +102,27 @@ volatile bool endStopBack = false;
 
 // TODO Semi-automatic calibration routine
 
+void rcInterrupt()
+{
+	if (digitalRead(PIN_RC_SPEED)) {
+
+		rcTimerSpeed = micros();
+
+	} else {
+
+		if (rcTimerSpeed != 0) {
+			// Record the pulse time
+			rcSpeed = micros() - rcTimerSpeed;
+			// Restart the timer
+			rcTimerSpeed = 0;
+			rcUpdated = true;
+		}
+	}
+}
 
 void setup()
 {
+#if USED_MOTOR == DFROBOT_MOTOR
 	//---------------------------------------------- Set PWM frequency for D5 & D6 -------------------------------
 	//NOTE: Changing this timer 0 affects millis() and delay!
 	//TCCR0B = TCCR0B & B11111000 | B00000001;    // set timer 0 divisor to     1 for PWM frequency of 62500.00 Hz
@@ -101,26 +138,30 @@ void setup()
 	//TCCR1B = TCCR1B & B11111000 | B00000100;    // set timer 1 divisor to   256 for PWM frequency of   122.55 Hz
 	//TCCR1B = TCCR1B & B11111000 | B00000101;    // set timer 1 divisor to  1024 for PWM frequency of    30.64 Hz
 
-	Serial.begin(115200);
-
 	// Motor control setup
 	pinMode(PIN_MOTOR_3_DIR, OUTPUT);
 	pinMode(PIN_MOTOR_4_FG, INPUT_PULLUP);
 	digitalWrite(PIN_MOTOR_1_PWM, HIGH); // Start with motor stopped
 	digitalWrite(PIN_MOTOR_3_DIR, HIGH);
 
+
 	// Motor encoder setup
 	// Code taken from https://playground.arduino.cc/Main/PinChangeInterrupt/
 	*digitalPinToPCMSK(PIN_MOTOR_4_FG) |= bit (digitalPinToPCMSKbit(PIN_MOTOR_4_FG)); // enable pin
 	PCIFR  |= bit (digitalPinToPCICRbit(PIN_MOTOR_4_FG)); // clear any outstanding interrupt
 	PCICR  |= bit (digitalPinToPCICRbit(PIN_MOTOR_4_FG)); // enable interrupt for the group
+#endif
+
 	encoderTicks = 0;
 	prevEncoderTicks = 0;
 
+	Serial.begin(115200);
+
 	// Remote control interrupt setup
-	*digitalPinToPCMSK(PIN_RC_SPEED) |= bit (digitalPinToPCMSKbit(PIN_RC_SPEED)); // enable pin
-	PCIFR  |= bit (digitalPinToPCICRbit(PIN_RC_SPEED)); // clear any outstanding interrupt
-	PCICR  |= bit (digitalPinToPCICRbit(PIN_RC_SPEED)); // enable interrupt for the group
+	/* *digitalPinToPCMSK(PIN_RC_SPEED) |= bit (digitalPinToPCMSKbit(PIN_RC_SPEED)); // enable pin */
+	/* PCIFR  |= bit (digitalPinToPCICRbit(PIN_RC_SPEED)); // clear any outstanding interrupt */
+	/* PCICR  |= bit (digitalPinToPCICRbit(PIN_RC_SPEED)); // enable interrupt for the group */
+	attachInterrupt(digitalPinToInterrupt(PIN_RC_SPEED), rcInterrupt, CHANGE);
 	rcTimerSpeed = 0;
 	rcSmoothSpeed = 0;
 	rcUpdated = false;
@@ -227,7 +268,24 @@ void handleRemoteControl()
 
 void handleSerialInput()
 {
+	if (Serial.available() <= 0) return;
 
+	float speed = Serial.parseInt() / 1000.0f;
+
+	if (speed > 1 || speed < -1) return;
+
+	// Filter out small noise in the PWM around zero
+	float delta1 = 0.03f;
+	if (-delta1 < speed && speed < delta1) speed = 0.0f;
+
+	Serial.print("setting speed to ");
+	Serial.println(speed);
+
+	// Set the target speed
+	if (controlMode == CONTROL_PID) pidTarget = speed;
+
+	// Or Set the output signal directly
+	else setOutputSignal(speed);
 }
 
 inline void measureCurrentSpeed()
@@ -294,13 +352,34 @@ void emergencyStop()
 	// Evitar que el PID haga moverse mas al bot despues de desctivado el switch
 	// Regresar un poco el motor cuando chocamos con algo
 	// Revisar el codigo del rover para pensar en como manejar el error
-	setOutputSignal(0);
+
+	stop();
+
+	// Set speed in oposite direction
+	if (endStopFront) {
+		Serial.println("Crashed on front!!");
+		pidTarget = -0.3;
+	} else { 
+		Serial.println("Crashed on back!!");
+		pidTarget = 0.3;
+	}
+
+	if (controlMode == CONTROL_DIRECT) setOutputSignal(pidTarget);
+
+	// Move slowly for one second
+	uint32_t timer = millis();
+	while (millis() - timer < 1000) updateOutputSignal();
+
+	stop();
+
+	endStopFront = false;
+	endStopBack = false;
 }
 
 void loop()
 {
 	if (endStopBack || endStopFront) {
-		debug_println("Crashed!!!");
+		/* debug_println("Crashed!!!"); */
 		emergencyStop();
 		return;
 	}
@@ -308,6 +387,12 @@ void loop()
 	switch (inputMode) {
 
 		case INPUT_RC:
+
+			if (Serial.available() && Serial.read() == 115) {
+				debug_println("Switching to serial control");
+				switchToSerialInput();
+			}
+
 			handleRemoteControl();
 			break;
 
@@ -315,9 +400,12 @@ void loop()
 
 			// As a safety measure, if someone is pulling the RC sticks,
 			// give the control back to the RC emitter.
-			if (abs(rcSpeed - RC_CALIBRATION[1]) > RC_THRESHOLD) {
+			// TODO is jumping to RC control without RC connected
+			if (abs(rcSpeed - RC_CALIBRATION[1]) > RC_THRESHOLD && rcSpeed != 0 && rcSpeed < RC_CALIBRATION[2] && rcSpeed > RC_CALIBRATION[0]) {
 
 				debug_println("Switching to remote control");
+				Serial.println(rcSpeed);
+
 				switchToRCInput();
 				delay(3000); // Check if this is needed
 
@@ -329,6 +417,7 @@ void loop()
 
 			break;
 	}
+
 
 	updateOutputSignal();
 
@@ -342,20 +431,6 @@ ISR(PCINT2_vect)
 	// ISR (PCINT1_vect) pin change interrupt for A0 to A5
 	// ISR (PCINT2_vect) pin change interrupt for D0 to D7
 
-	if (digitalRead(PIN_RC_SPEED)) {
-
-		rcTimerSpeed = micros();
-
-	} else {
-
-		if (rcTimerSpeed != 0) {
-			// Record the pulse time
-			rcSpeed = micros() - rcTimerSpeed;
-			// Restart the timer
-			rcTimerSpeed = 0;
-			rcUpdated = true;
-		}
-	}
 
 	if (!digitalRead(PIN_ENDSTOP_BACK) != endStopBack) {
 
@@ -393,3 +468,4 @@ ISR(PCINT0_vect)
 		}
 	}
 }
+
