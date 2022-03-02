@@ -3,7 +3,12 @@
 
 ## Head
 ### 3d printed PLA
-![Encoder cap](./3d-Print/Cablebot-Encoder_cap.jpg =x125) ![Head separator front](./3d-Print/Cablebot-Head_separator_front.jpg =x125) ![Head separator up](./3d-Print/Cablebot-Head_separator_up.jpg =x125) ![Spring holder up](./3d-Print/Cablebot-Spring_holder_Up.jpg =x125) ![Head separator back](./3d-Print/Cablebot-Head_separator_back.jpg =x125) ![Encoder holder](./3d-Print/Cablebot-Encoder_holder.jpg =x125)
+<img src="./3d-Print/Cablebot-Encoder_cap.jpg" alt="Encoder cap" height="125"/>
+<img src="./3d-Print/Cablebot-Head_separator_front.jpg" alt="Head separator front" height="125"/>
+<img src="./3d-Print/Cablebot-Head_separator_up.jpg" alt="Head separator up" height="125"/>
+<img src="./3d-Print/Cablebot-Spring_holder_Up.jpg" alt="Spring holder up" height="125"/>
+<img src="./3d-Print/Cablebot-Head_separator_back.jpg" alt="Head separator back" height="125"/>
+<img src="./3d-Print/Cablebot-Encoder_holder.jpg" alt="Encoder holder" height="125"/>
 
 |       |                                                                      |
 | :---: | ---                                                                  |
