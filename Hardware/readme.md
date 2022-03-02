@@ -1,14 +1,9 @@
 # Cablebot hardware
-![](Cablebot_full.jpg =x260) ![](Cablebot_milling.jpg =x260) ![](Cablebot_3dprint.jpg =x260)
+<img src="./Cablebot_full.jpg" alt="Cablebot" height="260"/> <img src="./Cablebot_milling.jpg" alt="Cablebot milled parts" height="260"/> <img src="./Cablebot_3dprint.jpg" alt="Cablebot printed parts" height="260"/>
 
 ## Head
 ### 3d printed PLA
-<img src="./3d-Print/Cablebot-Encoder_cap.jpg" alt="Encoder cap" height="125"/>
-<img src="./3d-Print/Cablebot-Head_separator_front.jpg" alt="Head separator front" height="125"/>
-<img src="./3d-Print/Cablebot-Head_separator_up.jpg" alt="Head separator up" height="125"/>
-<img src="./3d-Print/Cablebot-Spring_holder_Up.jpg" alt="Spring holder up" height="125"/>
-<img src="./3d-Print/Cablebot-Head_separator_back.jpg" alt="Head separator back" height="125"/>
-<img src="./3d-Print/Cablebot-Encoder_holder.jpg" alt="Encoder holder" height="125"/>
+<img src="./3d-Print/Cablebot-Encoder_cap.jpg" alt="Encoder cap" height="125"/> <img src="./3d-Print/Cablebot-Head_separator_front.jpg" alt="Head separator front" height="125"/> <img src="./3d-Print/Cablebot-Head_separator_up.jpg" alt="Head separator up" height="125"/> <img src="./3d-Print/Cablebot-Spring_holder_Up.jpg" alt="Spring holder up" height="125"/> <img src="./3d-Print/Cablebot-Head_separator_back.jpg" alt="Head separator back" height="125"/> <img src="./3d-Print/Cablebot-Encoder_holder.jpg" alt="Encoder holder" height="125"/>
 
 |       |                                                                      |
 | :---: | ---                                                                  |
@@ -20,7 +15,7 @@
 | 1x    | [Encoder holder](./3d-Print/Cablebot-Encoder_holder.stl)             |
 
 ### Milled Alucobond
-![Head front](./Milled-Alucobond/Cablebot-Head_front.jpg =x125) ![Head middle front](./Milled-Alucobond/Cablebot-Head_middle_front.jpg =x125) ![Head middle back](./Milled-Alucobond/Cablebot-Head_middle_back.jpg =x125) ![Head back](./Milled-Alucobond/Cablebot-Head_back.jpg =x125)
+<img src="./Milled-Alucobond/Cablebot-Head_front.jpg" alt="Head front" height="125"/> <img src="./Milled-Alucobond/Cablebot-Head_middle_front.jpg" alt="Head middle front" height="125"/> <img src="./Milled-Alucobond/Cablebot-Head_middle_back.jpg" alt="Head middle back" height="125"/> <img src="./Milled-Alucobond/Cablebot-Head_back.jpg" alt="Head back" height="125"/>
 
 |       |                                                                        |
 | :---: | ---                                                                    |
@@ -31,7 +26,8 @@
 
 ## Arms
 ### 3d printed PLA
-![Left arm cap out](./3d-Print/Cablebot-Left_arm_cap_out.jpg =x125) ![Pogo pin clip](./3d-Print/Cablebot-Pogo_pin_clip.jpg =x125) ![Left arm cap middle](./3d-Print/Cablebot-Left_arm_cap_middle.jpg =x125) ![Control board pcb holder](./3d-Print/Cablebot-Control_board_pcb_holder.jpg =x125) ![Right arm cap middle](./3d-Print/Cablebot-Right_arm_cap_middle.jpg =x125) ![Right arm cap out](./3d-Print/Cablebot-Right_arm_cap_out.jpg =x125)
+<img src="./3d-Print/Cablebot-Left_arm_cap_out.jpg" alt="Left arm cap out" height="125"/> <img src="./3d-Print/Cablebot-Pogo_pin_clip.jpg" alt="Pogo pin clip" height="125"/> <img src="./3d-Print/Cablebot-Left_arm_cap_middle.jpg" alt="Left arm cap middle" height="125"/> <img src="./3d-Print/Cablebot-Control_board_pcb_holder.jpg" alt="Control board pcb holder" height="125"/> <img src="./3d-Print/Cablebot-Right_arm_cap_middle.jpg" alt="Right arm cap middle" height="125"/> <img src="./3d-Print/Cablebot-Right_arm_cap_out.jpg" alt="Right arm cap out" height="125"/>
+
 |       |                                                                              |
 | :---: | ---                                                                          |
 | 1x    | [Left arm cap out](./3d-Print/Cablebot-Left_arm_cap_out.stl)                 |
@@ -42,7 +38,7 @@
 | 1x    | [Right arm cap out](./3d-Print/Cablebot-Right_arm_cap_out.stl)               |
 
 ### Milled Alucobond
-![Arm left](./Milled-Alucobond/Cablebot-Arm_left.jpg =x125) ![Arm slider fill](./Milled-Alucobond/Cablebot-Arms_slider_fill.jpg =x125) ![Arm right](./Milled-Alucobond/Cablebot-Arm_right.jpg =x125) 
+<img src="./Milled-Alucobond/Cablebot-Arm_left.jpg" alt="Arm left" height="125"/> <img src="./Milled-Alucobond/Cablebot-Arms_slider_fill.jpg" alt="Arm slider fill" height="125"/> <img src="./Milled-Alucobond/Cablebot-Arm_right.jpg" alt="Arm right" height="125"/>
 
 |       |                                                                      |
 | :---: | ---                                                                  |
@@ -52,7 +48,7 @@
 
 ## Hands
 ### 3d printed PLA
-![Hand end stop trigger left](./3d-Print/Cablebot-Hand_end_stop_trigger_left.jpg =x125) ![Hand base left](./3d-Print/Cablebot-Hand_base_left.jpg =x125) ![Pulley 608zz](./3d-Print/Cablebot-Pulley_608zz.jpg =x125) ![Hand base right](./3d-Print/Cablebot-Hand_base_right.jpg =x125) ![Hand end stop trigger right](./3d-Print/Cablebot-Hand_end_stop_trigger_right.jpg =x125)
+<img src="./3d-Print/Cablebot-Hand_end_stop_trigger_left.jpg" alt="Hand end stop trigger left" height="125"/> <img src="./3d-Print/Cablebot-Hand_base_left.jpg" alt="Hand base left" height="125"/> <img src="./3d-Print/Cablebot-Pulley_608zz.jpg" alt="Pulley 608zz" height="125"/> <img src="./3d-Print/Cablebot-Hand_base_right.jpg" alt="Hand base right" height="125"/> <img src="./3d-Print/Cablebot-Hand_end_stop_trigger_right.jpg" alt="Hand end stop trigger right" height="125"/>
 
 |       |                                                                                    |
 | :---: | ---                                                                                |
@@ -63,7 +59,7 @@
 | 1x    | [Hand end stop trigger right](./3d-Print/Cablebot-Hand_end_stop_trigger_right.stl) |
 
 ### Milled Alucobond
-![Hand left out small](./Milled-Alucobond/Cablebot-Hand_left_out_small.jpg =x125) ![Hand left middle small](./Milled-Alucobond/Cablebot-Hand_left_middle_small.jpg =x125) ![Hand front left](./Milled-Alucobond/Cablebot-Hand_front_left.jpg =x125) ![Hand right out small](./Milled-Alucobond/Cablebot-Hand_right_out_small.jpg =x125) ![Hand right middle small](./Milled-Alucobond/Cablebot-Hand_right_middle_small.jpg =x125) ![Hand front right](./Milled-Alucobond/Cablebot-Hand_front_right.jpg =x125) ![Hand left out big](./Milled-Alucobond/Cablebot-Hand_left_out_big.jpg =x125) ![Hand left middle big](./Milled-Alucobond/Cablebot-Hand_left_middle_big.jpg =x125) ![Hand right out big](./Milled-Alucobond/Cablebot-Hand_right_out_big.jpg =x125) ![Hand right middle big](./Milled-Alucobond/Cablebot-Hand_right_middle_big.jpg =x125) 
+<img src="./Milled-Alucobond/Cablebot-Hand_left_out_small.jpg" alt="Hand left out small" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_left_middle_small.jpg" alt="Hand left middle small" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_front_left.jpg" alt="Hand front left" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_right_out_small.jpg" alt="Hand right out small" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_right_middle_small.jpg" alt="Hand right middle small" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_front_right.jpg" alt="Hand front right" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_left_out_big.jpg" alt="Hand left out big" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_left_middle_big.jpg" alt="Hand left middle big" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_right_out_big.jpg" alt="Hand right out big" height="125"/> <img src="./Milled-Alucobond/Cablebot-Hand_right_middle_big.jpg" alt="Hand right middle big" height="125"/>
 
 |       |                                                                                    |
 | :---: | ---                                                                                |
@@ -82,7 +78,7 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 
 ## Body 
 ### 3d printed PLA
-![Cable bridge left](./3d-Print/Cablebot-Cable_bridge_left.jpg =x125) ![Spring holder down](./3d-Print/Cablebot-Spring_holder_down.jpg =x125) ![Power pcb holder](./3d-Print/Cablebot-Power_pcb_holder.jpg =x125) ![Cable bridge right](./3d-Print/Cablebot-Cable_bridge_right.jpg =x125)
+<img src="./3d-Print/Cablebot-Cable_bridge_left.jpg" alt="Cable bridge left" height="125"/> <img src="./3d-Print/Cablebot-Spring_holder_down.jpg" alt="Spring holder down" height="125"/> <img src="./3d-Print/Cablebot-Power_pcb_holder.jpg" alt="Power pcb holder" height="125"/> <img src="./3d-Print/Cablebot-Cable_bridge_right.jpg" alt="Cable bridge right" height="125"/>
 
 |       |                                                                  |
 | :---: | ---                                                              |
@@ -92,7 +88,7 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 | 1x    | [Cable bridge right](./3d-Print/Cablebot-Cable_bridge_right.stl) |
 
 ### Milled Alucobond
-![Body cover back](./Milled-Alucobond/Cablebot-Body_cover_back.jpg =x125) ![H holder](./Milled-Alucobond/Cablebot-H_holder.jpg =x125) ![Body cover front](./Milled-Alucobond/Cablebot-Body_cover_front.jpg =x125)
+<img src="./Milled-Alucobond/Cablebot-Body_cover_back.jpg" alt="Body cover back" height="125"/> <img src="./Milled-Alucobond/Cablebot-H_holder.jpg" alt="H holder" height="125"/> <img src="./Milled-Alucobond/Cablebot-Body_cover_front.jpg" alt="Body cover front" height="125"/>
 
 |       |                                                                            |
 | :---: | ---                                                                        |
@@ -102,25 +98,26 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 
 ## Battery module
 ### 3d printed PLA
-![Battery cap](./3d-Print/Cablebot-Battery_cap.jpg =x125) ![Battery and BMS box](./3d-Print/Cablebot-Battery_and_BMS_box.jpg =x125) ![Battery connector top](./3d-Print/Cablebot-Battery_connector_top.jpg =x125) ![Battery connector bottom](./3d-Print/Cablebot-Battery_connector_bottom.jpg =x125)
+<img src="./3d-Print/Cablebot-Battery_cap.jpg" alt="Battery cap" height="125"/> <img src="./3d-Print/Cablebot-Battery_and_BMS_box.jpg" alt="Battery and BMS box" height="125"/> <img src="./3d-Print/Cablebot-Battery_connector_top.jpg" alt="Battery connector top" height="125"/> <img src="./3d-Print/Cablebot-Battery_connector_bottom.jpg" alt="Battery connector bottom" height="125"/>
 
 |       |                                                                                           |
 | :---: | ---                                                                                       |
 | 1x    | [Battery cap](./3d-Print/Cablebot-Battery_cap.stl)                                        |
 | 1x    | [Battery and BMS box](./3d-Print/Cablebot-Battery_and_BMS_box.stl)                        |
-| 1x    | [Battery connector top](./3d-Print/Cablebot-Battery_connector_top.stl)       |
-| 1x    | [Battery connector bottom](./3d-Print/Cablebot-Battery_connector_bottom.stl) |
+| 1x    | [Battery connector top](./3d-Print/Cablebot-Battery_connector_top.stl)                    |
+| 1x    | [Battery connector bottom](./3d-Print/Cablebot-Battery_connector_bottom.stl)              |
 
 ### Milled Alucobond
-![Battery cover](./Milled-Alucobond/Cablebot-Battery_cover.jpg =x125)
+<img src="./Milled-Alucobond/Cablebot-Battery_cover.jpg" alt="Battery cover" height="125"/>
 
 |       |                                                                            |
 | :---: | ---                                                                        |
-| 1x    | [Battery cover](./Milled-Alucobond/Cablebot-Battery_cover.dxf)         |
+| 1x    | [Battery cover](./Milled-Alucobond/Cablebot-Battery_cover.dxf)             |
 
 ## Camera module
 ### 3d printed PLA
-![Bearing cap](./3d-Print/Camera_module-Bearing_cap.jpg =x125) ![Main cap](./3d-Print/Camera_module-Main_Cap.jpg =x125) ![Pcb holder](./3d-Print/Camera_module-PCB_holder.jpg =x125) ![Top connector cap](./3d-Print/Camera_module-Top_connector_cap.jpg =x125) ![Corner motor top](./3d-Print/Camera_module-Corner_motor_top.jpg =x125)
+<img src="./3d-Print/Camera_module-Bearing_cap.jpg" alt="Bearing cap" height="125"/> <img src="./3d-Print/Camera_module-Main_Cap.jpg" alt="Main cap" height="125"/> <img src="./3d-Print/Camera_module-PCB_holder.jpg" alt="Pcb holder" height="125"/> <img src="./3d-Print/Camera_module-Top_connector_cap.jpg" alt="Top connector cap" height="125"/> <img src="./3d-Print/Camera_module-Corner_motor_top.jpg" alt="Corner motor top" height="125"/>
+
 |       |                                                                     |
 | :---: | ---                                                                 |
 | 1x    | [Bearing cap](./3d-Print/Camera_module-Bearing_cap.stl)             |
@@ -130,7 +127,7 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 | 1x    | [Corner motor top](./3d-Print/Camera_module-Corner_motor_top.stl)   |
 
 ### Milled Alucobond
-![Holder top](./Milled-Alucobond/Camera_module-Holder_top.jpg =x125) ![Holder bottom](./Milled-Alucobond/Camera_module-Holder_bottom.jpg =x125) ![Holder camera](./Milled-Alucobond/Camera_module-Holder_camera.jpg =x125)
+<img src="./Milled-Alucobond/Camera_module-Holder_top.jpg" alt="Holder top" height="125"/> <img src="./Milled-Alucobond/Camera_module-Holder_bottom.jpg" alt="Holder bottom" height="125"/> <img src="./Milled-Alucobond/Camera_module-Holder_camera.jpg" alt="Holder camera" height="125"/>
 
 |       |                                                                     |
 | :---: | ---                                                                 |
