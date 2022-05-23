@@ -9,7 +9,8 @@ bool RomiOdrive::begin()
 	odrvSer.begin(config.serial_speed);
 	uint32_t start_t = millis();
 	while (!odrvSer) {
-		if (millis() - start_t > config.serial_timeout) return false;
+		if (millis() - start_t > config.serial_timeout)
+                        return false;
 		delay(5);
 	}
 
@@ -17,6 +18,7 @@ bool RomiOdrive::begin()
 	setVersion();
 	return true;
 }
+
 void RomiOdrive::reset(bool hardReset)
 {
 	if (hardReset) {
@@ -29,15 +31,16 @@ void RomiOdrive::reset(bool hardReset)
 		send("sr");
 	}
 }
+
 void RomiOdrive::rawCommand(const char* rawcom)
 {
 	send(rawcom);
 	Serial.println(getString());
 }
 
-bool RomiOdrive::setState(AxisState wichState)
+bool RomiOdrive::setState(AxisState whichState)
 {
-	snprintf(obuff, OBSIZE, "w axis0.requested_state %i", wichState);
+	snprintf(obuff, OBSIZE, "w axis0.requested_state %i", whichState);
 	send();
 
 	uint32_t start_t = millis();
@@ -46,14 +49,16 @@ bool RomiOdrive::setState(AxisState wichState)
 	send("r axis0.current_state");
 	response = getString().toInt();
 
-	while (response != wichState) {
-		if (millis() - start_t > config.idle_timeout) return false;
+	while (response != whichState) {
+		if (millis() - start_t > config.idle_timeout)
+                        return false;
 		delay(300);
 		response = readParameter("axis0.current_state").toInt();
         }
 
 	return true;
 }
+
 bool RomiOdrive::isEncoderOK()
 {
 	int response = 0;
@@ -62,15 +67,17 @@ bool RomiOdrive::isEncoderOK()
 		send("r axis0.encoder.is_ready");
 		response = getString().toInt();
 		counter++;
-		if (counter > 5) break;
+		if (counter > 7)
+                        break;
+		delay(1000);
 	}
 	return response;
 }
 
-float RomiOdrive::getInfo(Info wichInfo)
+float RomiOdrive::getInfo(Info whichInfo)
 {
 	// TODO check if we can get proper velocity with encoder.vel_estimate
-	switch(wichInfo) {
+	switch(whichInfo) {
 
 		case INFO_VBUS_VOLTAGE:
 			send("r vbus_voltage");
@@ -108,22 +115,17 @@ float RomiOdrive::getInfo(Info wichInfo)
 	float value = getString().toFloat();
 	return value;
 }
-String RomiOdrive::readParameter(char* wichParameter)
+
+String RomiOdrive::readParameter(const char* whichParameter)
 {
-	snprintf(obuff, OBSIZE, "r %s", wichParameter);
-	send();
-	return getString();
-}
-String RomiOdrive::readParameter(const char* wichParameter)
-{
-	snprintf(obuff, OBSIZE, "r %s", wichParameter);
+	snprintf(obuff, OBSIZE, "r %s", whichParameter);
 	send();
 	return getString();
 }
 
 void RomiOdrive::stop()
 {
-	// Find out in wich control mode we are
+	// Find out in which control mode we are
 	String ctrlMoStr = readParameter("axis0.controller.config.control_mode");
 	uint8_t ctrlMo = ctrlMoStr.toInt();
 
@@ -135,6 +137,7 @@ void RomiOdrive::stop()
 
 	} else if (ctrlMo == CONTROL_MODE_VELOCITY_CONTROL) moveAt(0);
 }
+
 void RomiOdrive::moveTo(float posInTurns)
 {
 	posInTurns *= ticksPerTurn();
@@ -150,6 +153,7 @@ void RomiOdrive::moveTo(float posInTurns)
 	snprintf(obuff, OBSIZE, "w axis0.controller.input_pos %f", posInTurns);
 	send();
 }
+
 void RomiOdrive::moveToAcc(float posInTurns)
 {
 	// Settings for trapezoidal movement can be adjusted with:
@@ -164,13 +168,16 @@ void RomiOdrive::moveToAcc(float posInTurns)
 	snprintf(obuff, OBSIZE, "w axis0.controller.config.control_mode %i", CONTROL_MODE_POSITION_CONTROL);
 	send();
 
-	// Input mode = INPUT_MODE_TRAP_TRAJ (5) (not needed since it is already in command code https://github.com/odriverobotics/ODrive/blob/master/Firmware/communication/ascii_protocol.cpp#L263)
+	// Input mode = INPUT_MODE_TRAP_TRAJ (5) (not needed since it
+	// is already in command code
+	// https://github.com/odriverobotics/ODrive/blob/master/Firmware/communication/ascii_protocol.cpp#L263)
 	snprintf(obuff, OBSIZE, "w axis0.controller.config.input_mode %i", INPUT_MODE_TRAP_TRAJ);
 	send();
 	
 	snprintf(obuff, OBSIZE, "w axis0.controller.input_pos %f", posInTurns);
 	send();
 }
+
 void RomiOdrive::moveAt(float velocity)
 {
 
@@ -190,6 +197,7 @@ void RomiOdrive::moveAt(float velocity)
 	snprintf(obuff, OBSIZE, "w axis0.controller.input_vel %f", velocity);
 	send();
 }
+
 void RomiOdrive::moveAtNorm(float velocity)
 {
 	float maxSpeedInTurns  = config.maxSpeed * config.turnsPerMeter;
@@ -211,6 +219,7 @@ void RomiOdrive::moveAtNorm(float velocity)
 	snprintf(obuff, OBSIZE, "w axis0.controller.input_vel %f", velocity);
 	send();
 }
+
 void RomiOdrive::moveAttAcc(float velocity, float ramp_rate)
 {
 
@@ -236,6 +245,7 @@ void RomiOdrive::moveAttAcc(float velocity, float ramp_rate)
 	snprintf(obuff, OBSIZE, "w axis0.controller.input_vel %f", velocity);
 	send();
 }
+
 void RomiOdrive::moveAttAccNorm(float velocity, float ramp_rate)
 {
 	float maxSpeedInTurns  = config.maxSpeed * config.turnsPerMeter;
@@ -271,20 +281,24 @@ void RomiOdrive::send(const char* msg)
 	snprintf(obuff, OBSIZE, "%s", msg);
 	send();
 }
+
 void RomiOdrive::send()
 {
 	odrvSer.println(obuff);
 }
+
 String RomiOdrive::getString()
 {
 	String response = "";
 	uint32_t start_t = millis();
 	while (true) {
 		char c = odrvSer.read();
-		if ((c == '\n' || c == '\r') && response.length() > 0) break;
+		if ((c == '\n' || c == '\r') && response.length() > 0)
+                        break;
 		response.concat(c);
 		while (!odrvSer.available()) {
-			if (millis() - start_t >= config.serial_timeout) return response;
+			if (millis() - start_t >= config.serial_timeout)
+                                return response;
 			delay(1);
 		}
 	}
@@ -294,9 +308,11 @@ String RomiOdrive::getString()
 bool RomiOdrive::setVersion(float fallback)
 {
 	// Depending on the odrive board version some settings change
-	// To find out your version you can check odrv0.fw_version_mayor odrv0.fw_version_minor odrv0.fw_version_revision
-	// We have only tested 0.4.11 and 0.5.10 (these boards report 0.0 version) boards
-	// More info on https://docs.odriverobotics.com/migration
+	// To find out your version you can check
+	// odrv0.fw_version_mayor odrv0.fw_version_minor
+	// odrv0.fw_version_revision We have only tested 0.4.11 and
+	// 0.5.10 (these boards report 0.0 version) boards More info
+	// on https://docs.odriverobotics.com/migration
 
 	// Returns true if version detection succeed, false if setting fallback version
 
@@ -316,9 +332,18 @@ bool RomiOdrive::setVersion(float fallback)
 
 	return true;
 }
+
 int RomiOdrive::ticksPerTurn()
 {
-	if (config.odrvVer < 5) return config.encoderTicks;
-	else return 1;
+	if (config.odrvVer < 5)
+                return config.encoderTicks;
+	else
+                return 1;
+}
+
+float RomiOdrive::getPosition()
+{
+        float ticks = getInfo(RomiOdrive::INFO_POSITION);
+        return ticks / (float) config.encoderTicks;
 }
 

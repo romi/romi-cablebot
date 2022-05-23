@@ -72,9 +72,9 @@ class RomiOdrive {
 			INFO_VERSION
 		};
 
-		float getInfo(Info wichInfo);
-		String readParameter(char* wichParameter);
-		String readParameter(const char* wichParameter);
+		float getInfo(Info whichInfo);
+		String readParameter(const char* whichParameter);
+		float getPosition(); // in turns
 
 		void stop();
 		void moveTo(float posInTurns);
