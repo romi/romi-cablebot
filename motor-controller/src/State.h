@@ -19,7 +19,14 @@ enum DeviceState {
 
 enum DeviceError {
         ERROR_NONE = 0,
-        ERROR_ODRIVE
+        ERROR_ODRIVE,
+        ERROR_BATTERY
+};
+
+enum BatteryState {
+        STATE_BATTERY_OK,
+        STATE_BATTERY_LOW,
+        STATE_BATTERY_CRITICAL
 };
 
 class State
@@ -31,6 +38,11 @@ public:
         DeviceState state;
 	DeviceError error;
         const char *error_message;
+	BatteryState battery_state;
+        float voltage;
+        bool blink_on;
+        unsigned long interval;
+        unsigned long last_time;
         
         State();
         virtual ~State() = default;
@@ -38,7 +50,9 @@ public:
         void init();
         void set(DeviceState s);
         void set_error(DeviceError error, const char *message);
+        void set_battery(float voltage);
         void clear_error();
+        void handle_leds();
 
 protected:
         void update_leds();
@@ -46,6 +60,9 @@ protected:
         void set_leds(const struct CRGB &color0,
                       const struct CRGB &color1,
                       const struct CRGB &color2);
+        void clear_leds();
+        void blink_leds();
+        void check_leds_timeout();
 };
         
         

@@ -27,7 +27,9 @@ using namespace romiserial;
 RomiOdrive romi_odrive(Serial1, PIN_ODRIVE_RESET);
 
 static float get_position();
+static void check_battery();
 
+        
 void handle_moveto(IRomiSerial *romiSerial, int16_t *args, const char *string_arg);
 void send_position(IRomiSerial *romiSerial, int16_t *args, const char *string_arg);
 void handle_homing(IRomiSerial *romiSerial, int16_t *args, const char *string_arg);
@@ -94,8 +96,6 @@ void setup()
 	pinPeripheral(PIN_SERIAL_CAM_RX, PIO_SERCOM);
 	pinPeripheral(PIN_SERIAL_CAM_TX, PIO_SERCOM);
 
-        delay(1000);
-
 	//// Odrive 
         state.set(STATE_INITIALIZING_ODRIVE);
         if (init_odrive()) {
@@ -110,6 +110,7 @@ void setup()
                                 endStopFront_irq, LOW);
                 attachInterrupt(digitalPinToInterrupt(PIN_ENDSTOP_BACK),
                                 endStopBack_irq, LOW);
+                
                 state.set(STATE_READY);
         }
 }
@@ -169,13 +170,18 @@ void handleEndstop()
 	endStopBack = false;
 }
 
-void loop()
+void check_end_stops()
 {
 	if (endStopBack || endStopFront) {
 		handleEndstop();
-		return;
 	}
+}
 
+void loop()
+{
+        check_end_stops();
+        check_battery();
+        state.handle_leds();
         romiSerial.handle_input();
 }
 
@@ -295,6 +301,24 @@ void send_on_position(IRomiSerial *romiSerial, int16_t *args, const char *string
 {
         snprintf(reply_string, sizeof(reply_string), "[0,%d]", (int) is_on_position());
         romiSerial->send(reply_string);         
+}
+
+static void do_check_battery()
+{
+        float voltage = romi_odrive.getInfo(RomiOdrive::INFO_VBUS_VOLTAGE);
+        state.set_battery(voltage);
+        Serial.print("voltage ");
+        Serial.println(voltage);
+}
+
+static void check_battery()
+{
+        static unsigned long last_battery_check = 0;
+        unsigned long now = millis();
+        if (now - last_battery_check > 5000) {
+                do_check_battery();
+                last_battery_check = now;
+        }
 }
 
 void send_status(IRomiSerial *romiSerial, int16_t *args, const char *string_arg)

@@ -3,7 +3,12 @@
 State::State()
         : state(STATE_STARTING_UP),
           error(ERROR_NONE),
-          error_message("")
+          error_message(""),
+          battery_state(STATE_BATTERY_OK), // Assume all OK
+          voltage(-1.0f),
+          blink_on(false),
+          interval(-1),
+          last_time(0)
 {
 }
 
@@ -19,6 +24,7 @@ void State::set(DeviceState s)
         Serial.println(state);        
         state = s;
         update_leds();
+        delay(250); // Make sure it's seen
 }
 
 void State::set_error(DeviceError err, const char *message)
@@ -77,6 +83,9 @@ void State::update_error_leds()
         case ERROR_ODRIVE:
                 set_leds(CRGB::Red, CRGB::Black, CRGB::Black);
                 break;
+        case ERROR_BATTERY:
+                set_leds(CRGB::Red, CRGB::Red, CRGB::Black);
+                break;
         }
 }
 
@@ -88,5 +97,54 @@ void State::set_leds(const struct CRGB &color0,
         leds[1] = color1;
         leds[2] = color2;        
         FastLED.show();
+}
+
+void State::clear_leds()
+{
+        leds[0] = CRGB::Black;
+        leds[1] = CRGB::Black;
+        leds[2] = CRGB::Black;        
+        FastLED.show();
+}
+
+void State::set_battery(float value)
+{
+        voltage = value;
+        if (voltage >= 16.0f) {
+                battery_state = STATE_BATTERY_OK;
+                interval = 0;
+        } else if (15.5f <= voltage && voltage < 16.0f) {
+                battery_state = STATE_BATTERY_LOW;
+                interval = 2000;
+        } else {
+                battery_state = STATE_BATTERY_CRITICAL;
+                interval = 500;
+        }
+}
+
+void State::handle_leds()
+{
+        if (interval > 0)
+                check_leds_timeout();
+}
+
+void State::check_leds_timeout()
+{
+        unsigned long now = millis();
+        if (now - last_time > interval) {
+                blink_leds();
+                last_time = now;
+        }
+}
+
+void State::blink_leds()
+{
+        if (blink_on) {
+                clear_leds();
+                blink_on = false;
+        } else {
+                update_leds();
+                blink_on = true;
+        }
 }
 
