@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/Users/macoscar/Documents/04_Projects/02_FabLab/05_ROMI/cablebot/cablebot_power/cablebot_power.sch</source>
+    <date>2021 June 09, Wednesday 12:02:40</date>
+    <tool>Eeschema (5.1.10-1-10_14)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>cablebot_power.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>OKI-78SR-5_1.5-W36-C</value>
+      <footprint>Converter_DCDC:Converter_DCDC_Murata_OKI-78SR_Vertical</footprint>
+      <datasheet>https://power.murata.com/data/power/oki-78sr.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">OK78SR5/1.5W36EC </field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Murata-Power-Solutions/OKI-78SR-5-15-W36E-C?qs=%2Fha2pyFaduiK3DdfaDQW71rjlssm%252BxqEL9TkmJzo7kpMUFWkNTsnk1tOQ0mL2EnW</field>
+        <field name="Mouser Ref"> 580-OK78SR5/1.5W36EC </field>
+      </fields>
+      <libsource lib="Converter_DCDC" part="OKI-78SR-5_1.5-W36-C" description="1.5A Step-Down DC/DC-Regulator, 7-36V input, 5V fixed Output Voltage, LM78xx replacement, -40°C to +85°C, OKI-78SR_Vertical"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BE57F6</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>POWER_ODRIVE</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">30.602/BLU</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D</field>
+        <field name="Mouser Ref">845-30.602/BLU</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BE57FC</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>POWER_IN</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">30.602/BLU</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D</field>
+        <field name="Mouser Ref">845-30.602/BLU</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BE5815</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_SPDT</value>
+      <footprint>Button_Switch_THT:SW_NKK_GW12LJP</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Switch" part="SW_SPDT" description="Switch, single pole double throw"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BE5824</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>CHARGING_STATION</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">30.602/BLU</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D</field>
+        <field name="Mouser Ref">845-30.602/BLU</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BE582C</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>OUTPUT</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">30.602/BLU</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D</field>
+        <field name="Mouser Ref">845-30.602/BLU</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BAB1AF</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1kΩ</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-cf_cfm.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">5063JD1K800FT </field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Vishay-Beyschlag/MBA02040C1801FRP00?qs=sGAEpiMZZMsPqMdJzcrNwjHuaZ59ATdspA5G4dLrn8Y%3D</field>
+        <field name="Mouser Ref"> 594-5063JD1K800FT </field>
+      </fields>
+      <libsource lib="fab" part="RES-US1206" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BAE5CD</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>RED</value>
+      <footprint>LED_THT:LED_D3.0mm</footprint>
+      <datasheet>https://media.digikey.com/PDF/Data%20Sheets/Everlight%20PDFs/ds300016.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">TLLK4401&#xD;</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Vishay-Semiconductors/TLLK4401/?qs=SKTic9O%2FXXBgDREIqNqnDA%3D%3D</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BACED4</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>Fuse</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60BB6BBA</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>OUTPUT</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer Ref">30.602/BLU</field>
+        <field name="Mouser Link">https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D</field>
+        <field name="Mouser Ref">845-30.602/BLU</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C01550</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Converter_DCDC" part="OKI-78SR-3.3_1.5-W36-C">
+      <aliases>
+        <alias>OKI-78SR-5_1.5-W36-C</alias>
+        <alias>OKI-78SR-12_1.0-W36-C</alias>
+      </aliases>
+      <description>1.5A Step-Down DC/DC-Regulator, 7-36V input, 3.3V fixed Output Voltage, LM78xx replacement, -40°C to +85°C, OKI-78SR_Vertical</description>
+      <docs>https://power.murata.com/data/power/oki-78sr.pdf</docs>
+      <footprints>
+        <fp>Converter*DCDC*Murata*OKI*78SR*Vertical*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">OKI-78SR-3.3_1.5-W36-C</field>
+        <field name="Footprint">Converter_DCDC:Converter_DCDC_Murata_OKI-78SR_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Fuse">
+      <description>Fuse</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Fuse*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_SPDT">
+      <description>Switch, single pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="fab" part="RES-US1206">
+      <footprints>
+        <fp>*R1206*</fp>
+        <fp>*R1206FAB*</fp>
+        <fp>*R1206W*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RES-US1206</field>
+        <field name="Footprint">fab-R1206</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/Users/macoscar/Documents/04_Projects/02_FabLab/03_General/02_Libraries/KiCad/V5/kicad-symbols/Connector.lib</uri>
+    </library>
+    <library logical="Converter_DCDC">
+      <uri>/Users/macoscar/Documents/04_Projects/02_FabLab/03_General/02_Libraries/KiCad/V5/kicad-symbols/Converter_DCDC.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/Users/macoscar/Documents/04_Projects/02_FabLab/03_General/02_Libraries/KiCad/V5/kicad-symbols/Device.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>/Users/macoscar/Documents/04_Projects/02_FabLab/03_General/02_Libraries/KiCad/V5/kicad-symbols/Switch.lib</uri>
+    </library>
+    <library logical="fab">
+      <uri>/Users/macoscar/Documents/04_Projects/02_FabLab/03_General/01_Repositories/fabcloud/electronics/kicad/fab.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="U1" pin="2"/>
+      <node ref="J2" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="J4" pin="2"/>
+      <node ref="J3" pin="2"/>
+      <node ref="J5" pin="2"/>
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="2" name="VUSB">
+      <node ref="J5" pin="1"/>
+      <node ref="U1" pin="3"/>
+      <node ref="D1" pin="2"/>
+      <node ref="J4" pin="1"/>
+    </net>
+    <net code="3" name="Net-(F1-Pad2)">
+      <node ref="F1" pin="2"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="4" name="VBATT">
+      <node ref="SW1" pin="2"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="5" name="Net-(SW1-Pad3)">
+      <node ref="SW1" pin="3"/>
+    </net>
+    <net code="6" name="Net-(D1-Pad1)">
+      <node ref="R1" pin="1"/>
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="7" name="VIN">
+      <node ref="J3" pin="1"/>
+      <node ref="F1" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="U1" pin="1"/>
+    </net>
+  </nets>
+</export>

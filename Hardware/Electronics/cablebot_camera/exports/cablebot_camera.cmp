@@ -1,0 +1,211 @@
+Cmp-Mod V01 Created by PcbNew   date = 2021 July 05, Monday 16:34:57
+
+BeginCmp
+TimeStamp = 60E05BFF
+Path = /60E0E6B2
+Reference = U3;
+ValeurCmp = DRV8313;
+IdModule  = SquantorTexasInstruments:SquantorTexasInstruments-HTSSOP-28;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E3A25E
+Path = /60FB0E24
+Reference = R3;
+ValeurCmp = 10kΩ;
+IdModule  = Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E3A24D
+Path = /60F6E978
+Reference = R2;
+ValeurCmp = 10kΩ;
+IdModule  = Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E35D68
+Path = /60EF4B68
+Reference = LOGO4;
+ValeurCmp = SONYLOGO;
+IdModule  = logos:SONY_CSL_LOGO;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E36CFF
+Path = /60ECC626
+Reference = LOGO3;
+ValeurCmp = ROMI;
+IdModule  = logos:ROMI_LOGO;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E1B167
+Path = /60ECC2F8
+Reference = LOGO2;
+ValeurCmp = fablab;
+IdModule  = logos:fablab;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E1B0D9
+Path = /60ECB90D
+Reference = LOGO1;
+ValeurCmp = Logo_Open_Hardware_Small;
+IdModule  = Symbol:OSHW-Logo2_7.3x6mm_SilkScreen;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E0364A
+Path = /60F7CAD6
+Reference = C6;
+ValeurCmp = 0.1uF;
+IdModule  = Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E05D99
+Path = /60E833A1
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E05D69
+Path = /60E1F5E0
+Reference = C3;
+ValeurCmp = 0.1uF;
+IdModule  = Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E05D39
+Path = /60E32363
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E05B4A
+Path = /60E12512
+Reference = C2;
+ValeurCmp = 0.01uF;
+IdModule  = Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DFC5DE
+Path = /613F444A
+Reference = H6;
+ValeurCmp = MountingHole;
+IdModule  = lib:MountingHole_2.7mm_M2.5_uHAT_RPi;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E365FD
+Path = /60FB61A4
+Reference = J3;
+ValeurCmp = Conn_01x06_Male;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E05DC9
+Path = /60EEDD3D
+Reference = R1;
+ValeurCmp = 10kΩ;
+IdModule  = Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DF498B
+Path = /60E397F8
+Reference = J8;
+ValeurCmp = Screw_Terminal_01x03;
+IdModule  = TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-3-3.5-H_1x03_P3.50mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DF47CD
+Path = /60E83D49
+Reference = C4;
+ValeurCmp = 100uF;
+IdModule  = Capacitor_THT:CP_Radial_D8.0mm_P3.50mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DF4961
+Path = /60F4AEB1
+Reference = J6;
+ValeurCmp = Screw_Terminal_01x02;
+IdModule  = TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DF4937
+Path = /60E0253E
+Reference = J5;
+ValeurCmp = Screw_Terminal_01x02;
+IdModule  = TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DDF511
+Path = /60DF084D
+Reference = U1;
+ValeurCmp = OKI-78SR-5_1.5-W36-C;
+IdModule  = Converter_DCDC:Converter_DCDC_Murata_OKI-78SR_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E366AC
+Path = /60FD4FAE
+Reference = J4;
+ValeurCmp = Screw_Terminal_01x02;
+IdModule  = TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60DDF4D3
+Path = /60DEF187
+Reference = AC1;
+ValeurCmp = ACCEL;
+IdModule  = fab:Adafruit-LSM6DSOX-PCB;
+EndCmp
+
+BeginCmp
+TimeStamp = 60E0AF75
+Path = /60DE2ED2
+Reference = A1;
+ValeurCmp = Adafruit_Feather_M0_Express;
+IdModule  = Module:Adafruit_Feather;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C78EB08
+Path = /5C77771F
+Reference = J1;
+ValeurCmp = GPIO_CONNECTOR;
+IdModule  = lib:PinSocket_2x20_P2.54mm_Vertical_Centered_Anchor;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C78BBF0
+Path = /5C7C8014
+Reference = H3;
+ValeurCmp = MountingHole;
+IdModule  = lib:MountingHole_2.7mm_M2.5_uHAT_RPi;
+EndCmp
+
+BeginCmp
+TimeStamp = 5C78BBF7
+Path = /5C7C8030
+Reference = H4;
+ValeurCmp = MountingHole;
+IdModule  = lib:MountingHole_2.7mm_M2.5_uHAT_RPi;
+EndCmp
+
+EndListe

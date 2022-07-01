@@ -1,0 +1,34 @@
+"Source:","/Users/macoscar/Documents/04_Projects/02_FabLab/05_ROMI/cablebot/cablebot_power/cablebot_power.sch"
+"Date:","2021 June 09, Wednesday 12:02:40"
+"Tool:","Eeschema (5.1.10-1-10_14)"
+"Generator:","/private/var/folders/jh/yqwgppd975x6_958tswyv1cm0000gn/T/AppTranslocation/2213E3CF-AFB1-4C3F-8EA0-6280F0BF5AF1/d/kicad.app/Contents/SharedSupport/plugins/bom_csv_grouped_by_value.py"
+"Component Count:","10"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet","Manufacturer Ref","Mouser Link","Mouser Ref"
+"","","D1","RED","Device:LED","LED_THT:LED_D3.0mm","https://media.digikey.com/PDF/Data%20Sheets/Everlight%20PDFs/ds300016.pdf","TLLK4401","https://www.mouser.es/ProductDetail/Vishay-Semiconductors/TLLK4401/?qs=SKTic9O%2FXXBgDREIqNqnDA%3D%3D",""
+"","","F1","Fuse","Device:Fuse","","~","","",""
+"","","J1","POWER_IN","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"","","J2","POWER_ODRIVE","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"","","J3","CHARGING_STATION","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"","","J4","OUTPUT","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"","","J5","OUTPUT","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"","","R1","1kΩ","fab:RES-US1206","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","https://www.seielect.com/catalog/sei-cf_cfm.pdf","5063JD1K800FT ","https://www.mouser.es/ProductDetail/Vishay-Beyschlag/MBA02040C1801FRP00?qs=sGAEpiMZZMsPqMdJzcrNwjHuaZ59ATdspA5G4dLrn8Y%3D"," 594-5063JD1K800FT "
+"","","SW1","SW_SPDT","Switch:SW_SPDT","Button_Switch_THT:SW_NKK_GW12LJP","~","","",""
+"","","U1","OKI-78SR-5_1.5-W36-C","Converter_DCDC:OKI-78SR-5_1.5-W36-C","Converter_DCDC:Converter_DCDC_Murata_OKI-78SR_Vertical","https://power.murata.com/data/power/oki-78sr.pdf","OK78SR5/1.5W36EC ","https://www.mouser.es/ProductDetail/Murata-Power-Solutions/OKI-78SR-5-15-W36E-C?qs=%2Fha2pyFaduiK3DdfaDQW71rjlssm%252BxqEL9TkmJzo7kpMUFWkNTsnk1tOQ0mL2EnW"," 580-OK78SR5/1.5W36EC "
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet","Manufacturer Ref","Mouser Link","Mouser Ref"
+"1","1","D1","RED","Device:LED","LED_THT:LED_D3.0mm","https://media.digikey.com/PDF/Data%20Sheets/Everlight%20PDFs/ds300016.pdf","TLLK4401","https://www.mouser.es/ProductDetail/Vishay-Semiconductors/TLLK4401/?qs=SKTic9O%2FXXBgDREIqNqnDA%3D%3D",""
+"2","1","F1","Fuse","Device:Fuse","","~","","",""
+"3","1","J1","POWER_IN","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"4","1","J2","POWER_ODRIVE","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"5","1","J3","CHARGING_STATION","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"6","2","J4, J5","OUTPUT","Connector:Screw_Terminal_01x02","TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm","~","30.602/BLU","https://www.mouser.es/ProductDetail/Altech/30602-BLUE?qs=%2Fha2pyFaduheMucPzDmf24sQSlM3tFCOuX2Wv2GtnWg%3D","845-30.602/BLU"
+"7","1","R1","1kΩ","fab:RES-US1206","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","https://www.seielect.com/catalog/sei-cf_cfm.pdf","5063JD1K800FT ","https://www.mouser.es/ProductDetail/Vishay-Beyschlag/MBA02040C1801FRP00?qs=sGAEpiMZZMsPqMdJzcrNwjHuaZ59ATdspA5G4dLrn8Y%3D"," 594-5063JD1K800FT "
+"8","1","SW1","SW_SPDT","Switch:SW_SPDT","Button_Switch_THT:SW_NKK_GW12LJP","~","","",""
+"9","1","U1","OKI-78SR-5_1.5-W36-C","Converter_DCDC:OKI-78SR-5_1.5-W36-C","Converter_DCDC:Converter_DCDC_Murata_OKI-78SR_Vertical","https://power.murata.com/data/power/oki-78sr.pdf","OK78SR5/1.5W36EC ","https://www.mouser.es/ProductDetail/Murata-Power-Solutions/OKI-78SR-5-15-W36E-C?qs=%2Fha2pyFaduiK3DdfaDQW71rjlssm%252BxqEL9TkmJzo7kpMUFWkNTsnk1tOQ0mL2EnW"," 580-OK78SR5/1.5W36EC "

@@ -1,0 +1,43 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# RES-US1206-fab
+#
+DEF RES-US1206-fab R 0 40 N N 1 L N
+F0 "R" -150 59 45 H V L BNN
+F1 "RES-US1206-fab" -150 -130 45 H V L BNN
+F2 "fab-R1206" 30 150 20 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ *R1206*
+ *R1206FAB*
+ *R1206W*
+$ENDFPLIST
+DRAW
+P 2 1 0 0 -100 0 -85 40 N
+P 2 1 0 0 -85 40 -60 -40 N
+P 2 1 0 0 -60 -40 -35 40 N
+P 2 1 0 0 -35 40 -10 -40 N
+P 2 1 0 0 -10 -40 15 40 N
+P 2 1 0 0 15 40 40 -40 N
+P 2 1 0 0 40 -40 65 40 N
+P 2 1 0 0 65 40 90 -40 N
+P 2 1 0 0 90 -40 100 0 N
+X 1 1 -200 0 100 R 40 40 1 1 P
+X 2 2 200 0 100 L 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+# fablab-logos
+#
+DEF fablab-logos U 0 40 Y Y 1 F N
+F0 "U" 0 0 50 H V C CNN
+F1 "fablab-logos" 0 0 50 H V C CNN
+F2 "logos:fablab" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C 0 0 158 0 1 0 N
+ENDDRAW
+ENDDEF
+#
+#End Library

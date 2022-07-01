@@ -1,0 +1,12 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"D3,D2,D1";"LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm";3;"WS2812B";;;
+2;"OSH1";"OSHW-Logo2_9.8x8mm_SilkScreen";1;"Logo_Open_Hardware_Small";;;
+3;"U2";"ROMI_LOGO";1;"romi";;;
+4;"U1";"fablab";1;"fablab";;;
+5;"SW2";"SW_Tactile_SPST_Angled_PTS645Vx58-2LFS";1;"SW_SPST";;;
+6;"A1";"Adafruit_Feather";1;"Adafruit_Feather_M0_Basic_Proto";;;
+7;"J5,J4";"TerminalBlock_Phoenix_MPT-0,5-5-2.54_1x05_P2.54mm_Horizontal";2;"Screw_Terminal_01x05";;;
+8;"J3,J2";"TerminalBlock_Phoenix_MPT-0,5-6-2.54_1x06_P2.54mm_Horizontal";2;"Screw_Terminal_01x06";;;
+9;"SW1";"SW_Tactile_SPST_Angled_PTS645Vx83-2LFS";1;"SW_SPST";;;
+10;"R1";"fab-R1206FAB";1;"1kΩ";;;
+11;"JN1";"Adafruit-LSM6DSOX-PCB";1;"ACCEL";;;

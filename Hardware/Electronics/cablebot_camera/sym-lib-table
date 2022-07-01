@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name cablebot_camera-rescue)(type Legacy)(uri ${KIPRJMOD}/cablebot_camera-rescue.lib)(options "")(descr ""))
+)

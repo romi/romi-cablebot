@@ -1,0 +1,16 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"U3";"ROMI_LOGO";1;"fablab";;;
+2;"U2";"fablab";1;"fablab";;;
+3;"H2,H1";"MountingHole_3.2mm_M3";2;"MountingHole";;;
+4;"J6";"TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal";1;"CAMERA MODULE";;;
+5;"OSH1";"OSHW-Logo2_7.3x6mm_SilkScreen";1;"Logo_Open_Hardware_Small";;;
+6;"SW1";"TerminalBlock_Altech_AK300-2_P5.00mm";1;"SW_SPDT";;;
+7;"F2";"GENERIC_4010_10228";1;"Fuse";;;
+8;"F1";"Fuseholder_Littelfuse_Nano2_154x";1;"Fuse";;;
+9;"U1";"Converter_DCDC_Murata_OKI-78SR_Horizontal";1;"OKI-78SR-5_1.5-W36-C";;;
+10;"R1";"fab-R1206FAB";1;"1kΩ";;;
+11;"D1";"fab-LED1206FAB";1;"RED";;;
+12;"J5,J4";"TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal";2;"OUTPUT";;;
+13;"J3";"TerminalBlock_Altech_AK300-2_P5.00mm";1;"CHARGING_STATION";;;
+14;"J2";"TerminalBlock_Altech_AK300-2_P5.00mm";1;"POWER_ODRIVE";;;
+15;"J1";"TerminalBlock_Altech_AK300-2_P5.00mm";1;"BATTERY";;;
