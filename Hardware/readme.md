@@ -134,3 +134,26 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 | 1x    | [Holder top](./Milled-Alucobond/Camera_module-Holder_top.dxf)       |
 | 1x    | [Holder bottom](./Milled-Alucobond/Camera_module-Holder_bottom.dxf) |
 | 1x    | [Holder camera](./Milled-Alucobond/Camera_module-Holder_camera.dxf) |
+
+## Charging Station hardware
+<img src="./Charging_station-full.jpg" alt="Charging station" height="260"/> <img src="./Charging_station-milling.jpg" alt="Charging station milled parts" height="260"/> <img src="./Charging_station-3dprint.jpg" alt="Charging station printed parts" height="260"/>
+
+### 3d printed PLA
+<img src="./3d-Print/Charging_station-Arc.jpg" alt="Arc" height="125"/><img src="./3d-Print/Charging_station-Hold_roof.jpg" alt="Hold Roof" height="125"/><img src="./3d-Print/Charging_station-Cap.jpg" alt="Cap" height="125"/><img src="./3d-Print/Charging_station-Cap_separator.jpg" alt="Cap separator" height="125"/>
+
+|		|																	|
+| :---: | --- 																|
+| 1x 	| [Arc](./3d-Print/Charging_station-Arc.stl)						|
+| 1x 	| [Hold roof](./3d-Print/Charging_station-Hold_roof.stl) 			|
+| 2x 	| [Caps](./3d-Print/Charging_station-Cap.stl) 						|
+| 4x 	| [Cap separator](./3d-Print/Charging_station-Cap_separator.stl) 	|
+
+### Milled Alucobond
+<img src="./Milled-Alucobond/Charging_station-Back.jpg" alt="Back" height="125"/> <img src="./Milled-Alucobond/Charging_station-Roof.jpg" alt="Roof" height="125"/> <img src="./Milled-Alucobond/Charging_station-Side_left.jpg" alt="Side left" height="125"/><img src="./Milled-Alucobond/Charging_station-Side_right.jpg" alt="Side right" height="125"/>
+
+|       |                                                                     |
+| :---: | ---                                                                 |
+| 1x    | [Back](./Milled-Alucobond/Charging_station-Back.dxf)       		  |
+| 1x    | [Roof](./Milled-Alucobond/Charging_station-Roof.dxf) 		   		  |
+| 1x    | [Side left](./Milled-Alucobond/Charging_station-Sides.dxf)  		  |
+| 1x    | [Side right](./Milled-Alucobond/Charging_station-Sides.dxf) 		  |
