@@ -231,11 +231,11 @@ static bool set_position(float position)
         return true; // TODO
 }
 
-static bool is_on_position()
+static float distance_to_target()
 {
         float position = get_position();
-        float error = fabsf(position - target_position);
-        return (error < kMaximumPositionError);
+        float distance = fabsf(position - target_position);
+        return distance;
 }
 
 static bool moveto(float position, unsigned long timeout)
@@ -299,7 +299,10 @@ void handle_enable(IRomiSerial *romiSerial, int16_t *args, const char *string_ar
 
 void send_on_position(IRomiSerial *romiSerial, int16_t *args, const char *string_arg)
 {
-        snprintf(reply_string, sizeof(reply_string), "[0,%d]", (int) is_on_position());
+        float distance = distance_to_target();
+        bool on_position = (distance < kMaximumPositionError);
+        snprintf(reply_string, sizeof(reply_string), "[0,%d,%0.3f]",
+                 (int) on_position, distance);
         romiSerial->send(reply_string);         
 }
 
@@ -323,6 +326,8 @@ static void check_battery()
 
 void send_status(IRomiSerial *romiSerial, int16_t *args, const char *string_arg)
 {
+        int on_target = (int)(distance < kMaximumPositionError);
+        float distance = distance_to_target();
         float voltage = romi_odrive.getInfo(RomiOdrive::INFO_VBUS_VOLTAGE);
         float current_limit = romi_odrive.getInfo(RomiOdrive::INFO_CURRENT_LIMIT);
         float current = romi_odrive.getInfo(RomiOdrive::INFO_MEASURED_CURRENT);
@@ -332,8 +337,8 @@ void send_status(IRomiSerial *romiSerial, int16_t *args, const char *string_arg)
         int motor_error = (int) romi_odrive.getInfo(RomiOdrive::INFO_MOTOR_ERROR);
         float version = romi_odrive.getInfo(RomiOdrive::INFO_VERSION);
         snprintf(reply_string, sizeof(reply_string),
-                 "[0,%d,%d,%0.1f,%0.1f,%0.1f,%0.2f,%d,%d,%d,%0.2f]",
-                 state.error, (int) is_on_position(), voltage, current_limit, current,
+                 "[0,%d,%d,%0.3f,%0.1f,%0.1f,%0.1f,%0.2f,%d,%d,%d,%0.2f]",
+                 state.error, on_target, distance, voltage, current_limit, current,
                  position, axis_error, ctrl_error, motor_error, version);
         romiSerial->send(reply_string);         
 }

@@ -97,6 +97,7 @@ void State::set_leds(const struct CRGB &color0,
         leds[1] = color1;
         leds[2] = color2;        
         FastLED.show();
+        delay(1000);
 }
 
 void State::clear_leds()
