@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name cablebot_power-rescue)(type Legacy)(uri ${KIPRJMOD}/cablebot_power-rescue.lib)(options "")(descr ""))
-)
