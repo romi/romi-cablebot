@@ -40,7 +40,7 @@ module MaleContactBox() {
         
         // Remove material from the back to insert the pogo pin
         translate([-0.1-3, -8, -15.1])
-            cube([15.1 - 3.15 + 3 + 0.5, 16, 30.2]);
+            cube([15.1 - 3.15 + 3 + 1, 16, 30.2]);
         
         // Remove material from the front to access the contacts
         translate([15.5, -8, -18])
@@ -120,8 +120,9 @@ module FemaleContactBox() {
     }
 }
 
-FemaleContactBox();
-union() {
+*FemaleContactBox();
+
+*union() {
     translate([19.5, 11, 0])
     rotate([90, 0, 0])
     rotate([0, -90, 0])

@@ -83,19 +83,6 @@ module CablecamDisk() {
     CablecamExtrusion("Disk", 3.9); 
 }
 
-/*
-module CablecamFoot() {
-    CablecamExtrusion("foot1", 5); 
-    
-    translate([0, 0, 5])
-    linear_extrude(height = 100)
-       import(file = kDrawingsFile, layer = "foot2", $fn=360); 
-    translate([0, 0, 105])
-    linear_extrude(height = 5)
-       import(file = kDrawingsFile, layer = "foot1", $fn=360); 
-}
-*/
-
 module CablecamCoverExtrusion() {
     
         *CablecamStackExtrusions([["Cover01", kCoverHeightBottom],
@@ -335,10 +322,13 @@ module CablecamArm() {
     }
 }
 
-
 module CablecamCableHolderExtrusion()
 {
-    CablecamExtrusion("Arm04", 20); 
+    CablecamExtrusion("Arm04-1", 3.9); 
+    translate([0, 0, 3.9])
+        CablecamExtrusion("Arm04-2", 12.2); 
+    translate([0, 0, 16.1])
+        CablecamExtrusion("Arm04-1", 3.9); 
 }
 
 module CablecamCableHolder()
@@ -366,6 +356,41 @@ module CablecamCableHolder()
         translate([90, 0, 10]) {
             rotate([0, 90, 0]) {
                 cylinder(d = 4*mm, h = 10.1*mm, $fn = 360);
+            }
+        }
+
+        // Hole for M3 insert to press the cable
+        translate([119, -5.5, 10]) {
+            rotate([-90, 0, 0]) {
+                cylinder(d = 3*mm, h = 11.1*mm, $fn = 360);
+            }
+        }
+        translate([119, -5.5, 10]) {
+            rotate([-90, 0, 0]) {
+                cylinder(d = 4.2*mm, h = 6.1*mm, $fn = 360);
+            }
+        }
+    }    
+}
+
+module CablecamCableHolderExtrusion2()
+{
+    CablecamExtrusion("Arm04-3", 12); 
+}
+
+module CablecamCableHolder2()
+{
+    difference() {
+        CablecamCableHolderExtrusion2();
+
+        translate([111, -15, 4.5]) {
+            cube([12, 10, 3]);
+        }        
+
+        // Hole for M3 insert to fix the holder to the CablecamArm
+        translate([90, 0, 6]) {
+            rotate([0, 90, 0]) {
+                cylinder(d = 4.2*mm, h = 10.1*mm, $fn = 360);
             }
         }
     }    
@@ -431,25 +456,43 @@ module CablecamPi4() {
         CablecamExtrusion("RPi4-Header", 2.4); 
 }
 
+
+module CablecamPCBSpacer() {
+    difference() {
+        cylinder(d=6.5, h=kHeightSpaceBldcToRPi - 0.1, $fn=360);
+        translate([0, 0, -0.1])
+        cylinder(d=4, h=kHeightSpaceBldcToRPi + 0.2, $fn=360);
+    }
+}
+
 module CablecamElectronics()
 {
     h = kHeightBLDC + kHeightHeader1;
     ref_height = -1.5 - 0.1 - 3.9 - h; // The bottom of the BLDC board
     
     //translate([0, 0, -h - 3.9 - 1.5 - 0.1])
-    translate([0, 0, -1.5 - 0.1 - 3.9 - h])
+    translate([0, 0, ref_height])
         CablecamPCB();
     
-    *translate([0, 0, ref_height - 1.5 - 2.5 - 8.5])
+    translate([-11, 24.5, ref_height - kHeightSpaceBldcToRPi])
+        CablecamPCBSpacer();
+    translate([-11, -24.5, ref_height - kHeightSpaceBldcToRPi])
+        CablecamPCBSpacer();
+    translate([-69, 24.5, ref_height - kHeightSpaceBldcToRPi])
+        CablecamPCBSpacer();
+    translate([-69, -24.5, ref_height - kHeightSpaceBldcToRPi])
+        CablecamPCBSpacer();
+    
+    translate([0, 0, ref_height - 1.5 - 2.5 - 8.5])
     rotate([0, 0, 0])
         CablecamPi4();
     
-    *translate([0, 0, ref_height - 1.5 - 2.5 - 8.5 - 3])
+    translate([0, 0, ref_height - 1.5 - 2.5 - 8.5 - 3])
     rotate([180, 0, 0])
         CablecamBoardExtrusion();
 
     
-    *translate([-11, 0, ref_height -1.5 - 2.5 - 8.5 - 3 - 8 - 18.7/2])
+    translate([-11, 0, ref_height -1.5 - 2.5 - 8.5 - 3 - 8 - 18.7/2])
         BatteryPack();
 }
 
@@ -469,7 +512,7 @@ module BatteryPack() {
 
 module Cablecam()
 {
-    CablecamCover();
+    *CablecamCover();
 
     *translate([0, 0, -kCoverHeightDisk])
         CablecamDisk();
@@ -483,10 +526,15 @@ module Cablecam()
         CablecamArm();
     *translate([0, 0, -kCoverHeightToRing + 10])
         CablecamCableHolder();
+    translate([0, 0, -kCoverHeightToRing + 10 + 4])
+        CablecamCableHolder2();
+    
     *translate([0, 0, -kCoverHeightToRing + kArmHeight - 30])
         CablecamCableHolder();
 }
 
-Cablecam();
+*Cablecam();
 
-*CablecamElectronics();
+CablecamElectronics();
+
+*CablecamPCBSpacer();
