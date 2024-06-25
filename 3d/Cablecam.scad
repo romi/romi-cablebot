@@ -373,6 +373,8 @@ module CablecamCableHolder()
     }    
 }
 
+
+
 module CablecamCableHolderExtrusion2()
 {
     CablecamExtrusion("Arm04-3", 12); 
@@ -533,8 +535,41 @@ module Cablecam()
         CablecamCableHolder();
 }
 
-*Cablecam();
+//lenght_to_cam = -79;
+module CamMount() {
+    CablecamExtrusion("Cam-Mount1", 2); 
+    
+    translate([0, 0, 2])
+        CablecamExtrusion("Cam-Mount5", 2); 
+    
+    difference(){
+        translate([-75,14 , 2])
+        rotate([90,0,0])
+            CablecamExtrusion("Cam-Mount2", 28); 
+        translate([-77, 0, 2])    
+        rotate([90,0,90])
+            CablecamExtrusion("Cam-Mount4", 10);  
+    }    
+    translate([-77, 0, 2])
+    rotate([90,0,90])
+        CablecamExtrusion("Cam-Mount3", 2); 
+    translate([-80, 0, 2])
+    rotate([90,0,90])
+        CablecamExtrusion("Cam-Mount6", 3); 
+    
+}
 
-CablecamElectronics();
+module CamMount_translate(){
+    translate([0,0,4])
+        CamMount();
+}
 
-*CablecamPCBSpacer();
+//*Cablecam();
+
+//CablecamElectronics();
+
+//CablecamDisk();
+CamMount_translate();
+
+
+//*CablecamPCBSpacer();
