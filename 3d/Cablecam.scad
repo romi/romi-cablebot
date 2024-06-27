@@ -524,11 +524,11 @@ module Cablecam()
     *translate([0, 0, kWindowTotalHeightRing])
         CablecamWindow2();
 
-    *translate([0, 0, -kCoverHeightToRing])
+    translate([0, 0, -kCoverHeightToRing])
         CablecamArm();
     *translate([0, 0, -kCoverHeightToRing + 10])
         CablecamCableHolder();
-    translate([0, 0, -kCoverHeightToRing + 10 + 4])
+    *translate([0, 0, -kCoverHeightToRing + 10 + 4])
         CablecamCableHolder2();
     
     *translate([0, 0, -kCoverHeightToRing + kArmHeight - 30])
@@ -536,24 +536,25 @@ module Cablecam()
 }
 
 //lenght_to_cam = -79;
+
 module CamMount() {
-    CablecamExtrusion("Cam-Mount1", 2); 
+    CablecamExtrusion("Cam-Mount1", 4); 
     
-    translate([0, 0, 2])
+    translate([0, 0, 4])
         CablecamExtrusion("Cam-Mount5", 2); 
     
     difference(){
-        translate([-75,14 , 2])
+        translate([-66,14 , 4])
         rotate([90,0,0])
             CablecamExtrusion("Cam-Mount2", 28); 
-        translate([-77, 0, 2])    
+        translate([-70, 0, 2])    
         rotate([90,0,90])
             CablecamExtrusion("Cam-Mount4", 10);  
     }    
-    translate([-77, 0, 2])
+    translate([-70, 0, 4])
     rotate([90,0,90])
-        CablecamExtrusion("Cam-Mount3", 2); 
-    translate([-80, 0, 2])
+        CablecamExtrusion("Cam-Mount3", 4); 
+    translate([-73, 0, 4])
     rotate([90,0,90])
         CablecamExtrusion("Cam-Mount6", 3); 
     
@@ -564,12 +565,105 @@ module CamMount_translate(){
         CamMount();
 }
 
-//*Cablecam();
+module CamModule3(){
+    
+    //color(c = [1,0,0], alpha = 1.0)
+    cube([25,23.682,1.2]);
+    translate([7.1,9,1.2])
+        cube([10.8,10.8,4.07]);
+    translate([12.5,14.4,(5.27+4.23/2)])
+        cylinder(h=4.23, d=6.95, center = true);
+    translate([2.695,(23.682-5.71),-2.75])
+        cube([19.61,5.71,2.75]);
+    
+}
 
-//CablecamElectronics();
+module CamModule3_translate(){
+    color(c = [1,0,0], alpha = 1.0)
+    translate([-86,-12.5,48])
+    rotate([90,180,-90])
+        CamModule3();
+}
 
-//CablecamDisk();
-CamMount_translate();
+module CablecamWindow3Extrusion() {
+    
+    // The ring that fits into the ring of the cover
+    // Part 1: with holes that cover the disk screws
+    translate([0, 0, 0])
+       CablecamExtrusion("Window1-01", 3.5); 
+    
+    // Part 2: no holes for disk screws, but insert for fixation screw 
+    translate([0, 0, 3.5])
+    difference() {
+        CablecamExtrusion("Window1-02", 6.5); 
+        // hole for insert
+        translate([-90, 0, 2+1.25]) 
+        rotate([0, 90, 0]) 
+            cylinder(d=4, h=20, $fn=360);
+    }
+
+    // Fully filled ring
+    translate([0, 0, kWindowHeightRing])
+       CablecamExtrusion("Window1-03", kWindowHeightFullRing); 
 
 
-//*CablecamPCBSpacer();
+    // Ring with groove for the plastic windows
+    //translate([0, 0, kWindowHeightRing + kWindowHeightFullRing])
+    //   CablecamExtrusion("Window1-06", 36); 
+    
+    // Ring with groove for the plastic windows
+    translate([0, 0, kWindowHeightRing + kWindowHeightFullRing+36])
+       CablecamExtrusion("Window1-07", 3);  
+   
+       
+        
+}
+
+module CablecamWindow3() {
+    difference() {
+       CablecamWindow3Extrusion();
+
+        translate([76+3, 0, kArmHeight - 30 - kArmHolesOffset - kCoverHeightToRing])
+            rotate([0, 90, 0])
+            cylinder(h=20, d=4.1, $fn=360);
+        
+        translate([76+3, 0, kArmHeight - 10 + kArmHolesOffset -kCoverHeightToRing])
+            rotate([0, 90, 0])
+            cylinder(h=20, d=4.1, $fn=360);
+    }
+    
+    
+        
+        
+    translate([-99, 0, 7])
+    rotate([90,0,90])
+           CablecamExtrusion("Window1-08", 17); 
+
+
+    translate([-86, 0, 7])
+    rotate([90,0,90])
+        CablecamExtrusion("Window1-10", 4);
+}
+
+//CamModule3();
+//Cablecam();
+//CamMount_translate();
+//CamModule3_translate();
+CablecamWindow3();
+
+difference() {
+            
+            
+            translate([0, 0, kWindowHeightRing + kWindowHeightFullRing])
+               CablecamExtrusion("Window1-06", 36); 
+            
+            translate([-100, 0, 7])
+            rotate([90,0,90])
+                CablecamExtrusion("Window1-09", 20);
+ }
+
+
+
+
+
+
