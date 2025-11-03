@@ -11,9 +11,9 @@ from romi.battery import Battery
 def sendmail(title, body):
     port = 465
     smtp_server = "smtpauth.online.net"
-    sender_email = "romi@hanappe.com"
-    receiver_email = "peter.hanappe@sony.com"
-    password = "CEuMplD3"
+    sender_email = "xxx"
+    receiver_email = "xxx.com"
+    password = "xxx"
     message = f'Subject: {title}\r\n\r\n{body}'
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
