@@ -1,0 +1,7 @@
+{
+    "smtp_server": "smtp.example.org",
+    "port": 465,
+    "sender_email":= "sender@example.org",
+    "receiver_email": "receiver@example.org",
+    "password": "secret"
+}

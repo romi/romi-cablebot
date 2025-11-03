@@ -18,13 +18,18 @@ exp.observers.append(FileStorageObserver('midori'))
 results_json = 'experiment_results.json'
 
 
+def get_email_config():
+    with open('auth.json') as f:
+        return json.load(f)
 
+    
 def sendmail(title, body):
-    port = 465
-    smtp_server = "smtpauth.online.net"
-    sender_email = "xxx"
-    receiver_email = "xxx"
-    password = "xxx"
+    config = get_email_config()
+    port = config['port']
+    smtp_server = config['smtp_server']
+    sender_email = config['sender_email']
+    receiver_email = config['receiver_email']
+    password = config['password']
     message = f'Subject: {title}\r\n\r\n{body}'
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
