@@ -1,12 +1,15 @@
 include <units.scad>
 
+//mm = 1;
+
 // Screws
 kDiameterScrew = 0;
 kDiameterHead = 1;
 kHeightHead = 2;
 
 // Diameter screw, Diameter head, Height head 
-kM25Dimensions = [2.5*mm, m, 2.5*mm];
+kM2Dimensions = [2*mm, 3.8*mm, 2*mm];
+kM25Dimensions = [2.5*mm, 4.5*mm, 2.5*mm];
 kM3Dimensions = [3*mm, 5.5*mm, 3*mm];
 kM4Dimensions = [4*mm, 7*mm, 4*mm];
 kM5Dimensions = [5*mm, 8.5*mm, 5*mm];
@@ -26,6 +29,9 @@ kM3NutDimensions = [2.4*mm, 6.01*mm];
 kM4NutDimensions = [3.2*mm, 7.66*mm];
 kM5NutDimensions = [4*mm, 8.79*mm];
 
+// Countersunk screws: Diameter screw, Diameter head, Height head 
+
+kM25CountersunkDimensions = [2.5*mm, 5*mm, 1.45*mm];
 
 module _orient(orientation)
 {
@@ -67,6 +73,14 @@ module _Screw(dimensions, length, extraScrewRadius=0, extraHeadRadius=0, extraHe
                      h = length + 0.01,
                      $fn=360);
         }
+    }
+}
+
+module M2(length, orientation, extraScrewRadius=0, extraHeadRadius=0, extraHeadHeight=0)
+{
+    _orient(orientation) {
+        _Screw(kM2Dimensions, length, extraScrewRadius, 
+                extraHeadRadius,   extraHeadHeight);
     }
 }
 
@@ -176,4 +190,35 @@ module M5Nut(orientation, extraRadius=0, extraHeight=0)
     }
 }
 
-*M3Nut(-X);
+////////////////////////////////
+
+module _Countersunk(dimensions, length, extraScrewRadius=0, extraHeadRadius=0, extraHeadHeight=0) 
+{
+    color("lightgrey")
+    union() {
+        translate([0, 0, 0]) 
+            cylinder(h=extraHeadHeight, 
+            r=dimensions[kDiameterHead]/2 + extraHeadRadius,
+            $fn=360);
+        translate([0, 0, -dimensions[kHeightHead]]) 
+        cylinder(h=dimensions[kHeightHead], 
+                r1=dimensions[kDiameterScrew] / 2 + extraHeadRadius, 
+                r2=dimensions[kDiameterHead] / 2 + extraHeadRadius, 
+                $fn=360);
+        translate([0, 0, -length]) 
+        cylinder(h=length, 
+                r=extraScrewRadius[kDiameterScrew] / 2 + extraScrewRadius, 
+                $fn=360);
+    }
+}
+
+module M25Countersunk(length, orientation, extraScrewRadius=0, extraHeadRadius=0, extraHeadHeight=0) 
+{
+    _orient(orientation) {
+        _Countersunk(kM25CountersunkDimensions, length, extraScrewRadius, 
+                extraHeadRadius,   extraHeadHeight);
+    }
+}
+
+M25Countersunk(10, X, 0, 0, 0);
+*M25(10, X);

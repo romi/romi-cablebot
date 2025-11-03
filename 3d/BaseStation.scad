@@ -1,3 +1,4 @@
+include <units.scad>
 include <extrusion.scad>
 use <Cablecam.scad>
 use <Charger.scad>
@@ -270,7 +271,7 @@ module AngleAdjuster()
             cylinder(d=5.5, h=40, $fn=360); 
         // Hole for M5 nut
         translate([-95+155.1, -150, 12.5])
-            #M5Nut(X, 0.05, 2.5); 
+            M5Nut(X, 0.05, 2.5); 
     }
 }
 
@@ -373,13 +374,13 @@ module BaseStation()
         *translate([0, 0, -142+1])
             MotorHousing();
 
-        translate([0, 0, -7])
+        *translate([0, 0, -7])
             FixationBracket(); // REPRINT
 
-        *translate([0, 0, -7])
+        translate([0, 0, -7])
             AngleAdjuster();
 
-        *translate([101, -123, 16])
+        translate([101, -123, 16])
             rotate([-90, 0, 0]) 
             rotate([0, 90, 0]) 
                 HomeStation();
@@ -406,10 +407,10 @@ module SpacerWheelWithPin()
     }
 }
 
-*SpacerWheelWithPin();
+SpacerWheelWithPin();
 BaseStation();
 
-*translate([400, 0, -123])
+translate([400, 0, -123])
 rotate([0, 0, 180]) 
 rotate([0, -90, 0]) {
     Cablecam();

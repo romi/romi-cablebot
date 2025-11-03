@@ -154,10 +154,10 @@ module GimbalPiCameraCover()
 
 
 *GimbalMotor();
-*translate([0, 0, 0])
+translate([0, 0, 0])
     GimbalPiCamera();
 
 *translate([0, 21, 10])
     GimbalPiCamera2();
 
-GimbalPiCameraCover();
+*GimbalPiCameraCover();
